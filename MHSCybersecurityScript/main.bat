@@ -1,14 +1,10 @@
 @ECHO OFF
 
-:automationProcess
-echo Error
+echo Enter 1 to start: 
+choice 1 goto StartAutomation
+
+
+:StartAutomation
+echo Starting Automation . . .
 Rem -- vv End of Function vv --
 exit /b
-
-
-Rem User input to initalize automation
-
-SET /P startProcess=Enter "START" to start the process: 
-
-IF %startProcess%==START (call:automationProcess) ELSE (echo Process not started. . .)
-
