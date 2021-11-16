@@ -1,8 +1,8 @@
 @ECHO OFF
 
-echo Enter 1 to start: 
-choice 1 goto StartAutomation
+CHOICE /c doStart /m Enter "1" to start:
 
+IF ERRORLEVEL == 1 goto StartAutomation
 
 :StartAutomation
 echo Starting Automation . . .
