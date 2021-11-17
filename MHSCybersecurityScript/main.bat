@@ -24,12 +24,6 @@ echo Account Lockout Policies Completed
 net stop msftpsvc
 echo Stopped Unnessacry Services
 
-cd C:\
-del /S /Q C:\*.mp3
-del /S /Q C:\*.mp4
-echo Remove All Media Files
-GOTO :end
-
 :end
 echo Please close this window . . . 
 
