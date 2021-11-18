@@ -24,6 +24,9 @@ echo Account Lockout Policies Completed
 net stop msftpsvc
 echo Stopped Unnessacry Services
 
+net user guest /active no
+echo Disabled Guest Account
+
 :end
 echo Please close this window . . . 
 
