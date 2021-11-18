@@ -12,7 +12,7 @@ cls
 netsh advfirewall set allprofiles state on
 echo Enabled Firewall
 
-net accounts /MINPWLEN:12
+net accounts /MINPWLEN:8
 net accounts /MAXPWAGE:90
 net accounts /MINPWAGE:10
 net accounts /UNIQUEPW:10
