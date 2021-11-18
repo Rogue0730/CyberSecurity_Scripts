@@ -19,6 +19,7 @@ net accounts /UNIQUEPW:10
 echo Password Policies Completed
 
 net accounts /lockoutthreshold:10
+net accounts /lockoutduration:30
 echo Account Lockout Policies Completed
 
 net stop msftpsvc
