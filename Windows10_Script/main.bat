@@ -24,7 +24,7 @@ echo Account Lockout Policies Completed
 net stop msftpsvc
 echo Stopped Unnessacry Services
 
-net user guest /active no
+net user guest /active:no
 echo Disable guest account
 
 rem C:\Windows\System32\cmd.exe /k %windir%\System32\reg.exe ADD HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v EnableLUA /t REG_DWORD /d 1 /f -- Enables UAC
