@@ -27,7 +27,13 @@ echo Stopped Unnessacry Services
 net user guest /active:no
 echo Disable guest account
 
+rem net start "DHCP"
+rem echo Started Internet Services
+
+
 rem C:\Windows\System32\cmd.exe /k %windir%\System32\reg.exe ADD HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v EnableLUA /t REG_DWORD /d 1 /f -- Enables UAC
+
+
 
 GOTO :end
 
