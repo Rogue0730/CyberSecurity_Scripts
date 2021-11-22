@@ -5,7 +5,7 @@ admins = []
 
 # Function to run the main.bat file when called
 def runMainBat():
-    p = Popen("main.bat", cwd=r"\\w225-hv01\data$\mccarthykeegan\Downloads\MHSCybersecurityScript-main\MHSCybersecurityScript-main\MHSCybersecurityScript\main.py")
+    p = Popen("main.bat", cwd= # Abosolute File Path Here)
     stdout, stderr = p.communicate()
 
 # Function to get the authorized admins in README file
