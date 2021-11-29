@@ -33,7 +33,8 @@ rem echo Started Internet Services
 
 rem C:\Windows\System32\cmd.exe /k %windir%\System32\reg.exe ADD HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v EnableLUA /t REG_DWORD /d 1 /f -- Enables UAC
 
-
+rem Executing powershell commmands
+rem powershell -Command "& {set-location 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Internet Settings'; set-location ZoneMap\Domains; new-item SERVERNAME; set-location SERVERNAME; new-itemproperty . -Name http -Value 2 -Type DWORD;}"
 
 GOTO :end
 
