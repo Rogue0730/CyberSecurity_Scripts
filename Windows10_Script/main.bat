@@ -30,15 +30,16 @@ echo Disable guest account
 rem net start "DHCP"
 rem echo Started Internet Services
 
+powershell -Command "C:\Windows\System32\cmd.exe /k %windir%\System32\reg.exe ADD HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v EnableLUA /t REG_DWORD /d 1 /f"
+echo Enabled User Accout Control (UAC)
 
-rem C:\Windows\System32\cmd.exe /k %windir%\System32\reg.exe ADD HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v EnableLUA /t REG_DWORD /d 1 /f -- Enables UAC
+net share C$ /delete
+echo Stopped Sharing of Files
 
-rem Executing powershell commmands
-rem powershell -Command "& {set-location 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Internet Settings'; set-location ZoneMap\Domains; new-item SERVERNAME; set-location SERVERNAME; new-itemproperty . -Name http -Value 2 -Type DWORD;}"
+cd Documents
+del /S /Q C:\*.mp4
+del /S /Q C:\*.mp3
+del /S /Q C:\*.wav  
 
-GOTO :end
-
-:end
+echo $$FINISHED$$
 echo Please close this window . . . 
-
-pause
