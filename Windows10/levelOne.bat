@@ -1,6 +1,6 @@
 @ECHO OFF
 
-SET /P doStart=Enter 1 to start automation: 
+SET /P doStart=Enter 1 to start or 2 to quit: 
 IF %doStart%==1 GOTO :startAutomation 
 GOTO :end
 
@@ -21,17 +21,21 @@ echo Password Policies Completed
 net accounts /lockoutthreshold:10
 echo Account Lockout Policies Completed
 
-net stop msftpsvc
-echo Stopped Unnessacry Services
+sc config msftpsvc start= disabled
+sc stop msftpsvc
+sc config tlntsvr start= disabled
+sc stop tlntsvr
+iisreset /stop
+echo Disabled Unnessacry Services
 
 net user guest /active:no
 echo Disable guest account
 
-rem net start "DHCP"
-rem echo Started Internet Services
-
-powershell -Command "powershell -ExecutionPolicy Bypass -File levelTwo.ps1"
-echo Enabled User Accout Control (UAC)
+net start "DHCP"
+@echo on
+echo Y
+@echo OFF
+echo Started Internet Services
 
 net share C$ /delete
 echo Stopped Sharing of Files
@@ -41,5 +45,10 @@ del /S /Q C:\*.mp4
 del /S /Q C:\*.mp3
 del /S /Q C:\*.wav  
 
+Powershell.exe -executionpolicy remotesigned -File  /Windows10/levelTwo.ps1
+
 echo $$FINISHED$$
 echo Please close this window . . . 
+
+:end
+echo Done . . . 
