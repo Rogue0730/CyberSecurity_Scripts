@@ -19,10 +19,16 @@ net accounts /UNIQUEPW:10
 echo Password Policies Completed
 
 net accounts /lockoutthreshold:10
+net accounts /lockoutdurations:30
+net accounts /lockoutwindow:30
 echo Account Lockout Policies Completed
 
 sc config msftpsvc start= disabled
 sc stop msftpsvc
+sc config iprip start= disabled
+sc stop iprip
+sc config iisadmin start= disabled
+sc stop iisadmin
 echo Disabled Unnecessary Services
 
 net user guest /active:no
