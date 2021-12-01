@@ -23,10 +23,7 @@ echo Account Lockout Policies Completed
 
 sc config msftpsvc start= disabled
 sc stop msftpsvc
-sc config tlntsvr start= disabled
-sc stop tlntsvr
-iisreset /stop
-echo Disabled Unnessacry Services
+echo Disabled Unneeded Services
 
 net user guest /active:no
 echo Disable guest account
@@ -40,12 +37,7 @@ echo Started Internet Services
 net share C$ /delete
 echo Stopped Sharing of Files
 
-cd Documents
-del /S /Q C:\*.mp4
-del /S /Q C:\*.mp3
-del /S /Q C:\*.wav  
-
-Powershell.exe -executionpolicy remotesigned -File  /Windows10/levelTwo.ps1
+rem Powershell.exe -executionpolicy remotesigned -File  /Windows10/levelTwo.ps1
 
 echo $$FINISHED$$
 echo Please close this window . . . 
