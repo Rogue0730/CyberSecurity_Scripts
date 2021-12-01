@@ -23,7 +23,7 @@ echo Account Lockout Policies Completed
 
 sc config msftpsvc start= disabled
 sc stop msftpsvc
-echo Disabled Unneeded Services
+echo Disabled Unnecessary Services
 
 net user guest /active:no
 echo Disable guest account
