@@ -37,12 +37,16 @@ sc config tlntsvr start= disabled
 sc stop tlntsvr
 sc config SNMPTRAP start= disabled
 sc stop SNMPTRAP
-sc config Wecsvc start= auto
+sc config Wecsvc start= demand
 sc start Wecsvc
 sc config RemoteRegistry start= disabled
 sc stop RemoteRegistry
 sc config iprip start= disabled
 sc stop iprip
+sc config SNMP start= disabled
+sc stop SNMP
+sc config iphlpsvc start= disabled
+sc stop iphlpsvc
 
 rem --Guest Account--
 net user guest /active:no
