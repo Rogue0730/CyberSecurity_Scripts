@@ -50,3 +50,6 @@ sc stop iphlpsvc
 
 rem --Guest Account--
 net user guest /active:no
+
+rem --Folder Sharing--
+net share C /delete 
