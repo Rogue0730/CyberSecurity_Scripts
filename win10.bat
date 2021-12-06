@@ -18,6 +18,7 @@ netsh advfirewall set allprofiles state on
 
 rem ---Shared Folders---
 net share C$ /delete
+net share C /delete 
 
 rem ---User Account Control---
 reg ADD HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v EnableLUA /t REG_DWORD /d 1 /f
@@ -50,6 +51,3 @@ sc stop iphlpsvc
 
 rem --Guest Account--
 net user guest /active:no
-
-rem --Folder Sharing--
-net share C /delete 
